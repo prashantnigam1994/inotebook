@@ -9,6 +9,13 @@ export default function Navbar() {
         localStorage.removeItem("token");
         navigate("/login");
     }
+    // Method to close navbar on mobile
+    const closeNavbar = () => {
+        const navbar = document.getElementById("navbarSupportedContent");
+        if (navbar && navbar.classList.contains("show")) {
+            navbar.classList.remove("show"); // collapses the menu
+        }
+    }
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div className="container-fluid">
@@ -24,15 +31,15 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/">Home</Link>
+                            <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/" onClick={closeNavbar}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname === '/about' ? "active" : ""}`} to="/about">About</Link>
+                            <Link className={`nav-link ${location.pathname === '/about' ? "active" : ""}`} to="/about" onClick={closeNavbar}>About</Link>
                         </li>
                     </ul>
-                    {token ? <button onClick={handleLogout} className="btn btn-primary" role="button">Logout</button> :<form className="d-flex">
-                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/login' ? "active" : ""}`} to="/login" role="button">Login</Link>
-                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/signup' ? "active" : ""}`} to="/signup" role="button">Signup</Link>
+                    {token ? <button onClick={handleLogout} className="btn btn-primary" role="button">Logout</button> : <form className="d-flex">
+                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/login' ? "active" : ""}`} to="/login"  onClick={closeNavbar}role="button">Login</Link>
+                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/signup' ? "active" : ""}`} to="/signup"  onClick={closeNavbar}role="button">Signup</Link>
                     </form>}
                 </div>
             </div>
