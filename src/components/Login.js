@@ -33,6 +33,7 @@ const Login = ({ showAlert }) => {
 
     return (
         <div className="container">
+            <h3 className="my-4">Login to access iNotebook</h3>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
