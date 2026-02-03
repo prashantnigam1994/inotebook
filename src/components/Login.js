@@ -43,7 +43,8 @@ const Login = ({ showAlert }) => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input type="password" className="form-control" value={credentials.password} id="exampleInputPassword1" name="password" onChange={handleChange} />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary mx-2">Login</button>
+                <button type="button" className="btn btn-primary mx-2" onClick={() => navigate("/forgot-password")}>Forgot Password?</button>
             </form>
         </div>
     )

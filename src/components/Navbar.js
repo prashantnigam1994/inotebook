@@ -37,9 +37,9 @@ export default function Navbar() {
                             <Link className={`nav-link ${location.pathname === '/about' ? "active" : ""}`} to="/about" onClick={closeNavbar}>About</Link>
                         </li>
                     </ul>
-                    {token ? <button onClick={handleLogout} className="btn btn-primary" role="button">Logout</button> : <form className="d-flex">
-                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/login' ? "active" : ""}`} to="/login"  onClick={closeNavbar}role="button">Login</Link>
-                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/signup' ? "active" : ""}`} to="/signup"  onClick={closeNavbar}role="button">Signup</Link>
+                    {token ? <button onClick={handleLogout} className="btn btn-primary">Logout</button> : <form className="d-flex">
+                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/login' ? "active" : ""}`} to="/login"  onClick={closeNavbar}>Login</Link>
+                        <Link className={`btn btn-primary mx-1 ${location.pathname === '/signup' ? "active" : ""}`} to="/signup"  onClick={closeNavbar}>Signup</Link>
                     </form>}
                 </div>
             </div>

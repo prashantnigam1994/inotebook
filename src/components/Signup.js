@@ -8,6 +8,10 @@ const Signup = ({ showAlert }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { name, email, password, cpassword } = credentials;
+        if (password !== cpassword) {
+            showAlert("Passwords do not match", "danger");
+            return;
+        }
         // API CALL
         const response = await fetch(`${API_BASE_URL}/api/auth/createuser`, {
             method: "POST",
